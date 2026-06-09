@@ -81,7 +81,7 @@ class MainActivity : ComponentActivity() {
 fun ExamenApp() {
     val context = LocalContext.current
 
-    // Gestión de Estado: rememberSaveable mantiene los datos al rotar la pantalla
+    // rememberSaveable mantiene los datos al rotar la pantalla
     var dni by rememberSaveable { mutableStateOf("") }
     var apellidos by rememberSaveable { mutableStateOf("") }
     var nombre by rememberSaveable { mutableStateOf("") }
