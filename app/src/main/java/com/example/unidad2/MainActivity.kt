@@ -4,6 +4,7 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
@@ -140,13 +141,16 @@ fun ExamenApp() {
                     """.trimIndent()
 
                     val intent = Intent(Intent.ACTION_SENDTO).apply {
-                        data = Uri.parse("mailto:")
-                        putExtra(Intent.EXTRA_SUBJECT, "Datos del Formulario - Examen")
-                        putExtra(Intent.EXTRA_TEXT, message)
+                        data = Uri.parse("mailto:examen@ejemplo.com?subject=" + 
+                            Uri.encode("Datos del Formulario - Examen") + 
+                            "&body=" + Uri.encode(message))
                     }
 
-                    // Verificación básica para lanzar el intent
-                    context.startActivity(Intent.createChooser(intent, "Enviar correo..."))
+                    try {
+                        context.startActivity(Intent.createChooser(intent, "Enviar correo..."))
+                    } catch (e: Exception) {
+                        Toast.makeText(context, "No hay app de correo instalada", Toast.LENGTH_SHORT).show()
+                    }
                 },
                 colors = ButtonDefaults.buttonColors(containerColor = Color.Blue),
                 modifier = Modifier.fillMaxWidth()
