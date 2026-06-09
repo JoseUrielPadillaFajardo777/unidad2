@@ -1,3 +1,11 @@
 <resources>
-    <string name="app_name">unidad2</string>
+    <string name="app_name">Unidad 2 Examen</string>
+    <string name="alumno_nombre">Alumno: Jose Uriel Padilla Fajardo</string>
+    <string name="label_dni">DNI</string>
+    <string name="label_apellidos">Apellidos</string>
+    <string name="label_nombre">Nombre</string>
+    <string name="label_nacimiento">Fecha de Nacimiento</string>
+    <string name="label_sexo">Sexo</string>
+    <string name="label_validez">Validez</string>
+    <string name="btn_send">Enviar por Correo</string>
 </resources>
