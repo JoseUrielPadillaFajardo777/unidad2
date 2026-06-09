@@ -82,7 +82,7 @@ class MainActivity : ComponentActivity() {
 fun ExamenApp() {
     val context = LocalContext.current
 
-    // rememberSaveable mantiene los datos al rotar la pantalla
+    // rememberSaveable mantentiene los datos de rotacion
     var dni by rememberSaveable { mutableStateOf("") }
     var apellidos by rememberSaveable { mutableStateOf("") }
     var nombre by rememberSaveable { mutableStateOf("") }
@@ -90,7 +90,7 @@ fun ExamenApp() {
     var sexo by rememberSaveable { mutableStateOf("") }
     var validez by rememberSaveable { mutableStateOf("") }
 
-    // LazyColumn para organizar la estructura visual y permitir scroll
+    // organizar estructura y scroll
     LazyColumn(
         modifier = Modifier
             .fillMaxSize()
@@ -99,7 +99,7 @@ fun ExamenApp() {
         verticalArrangement = Arrangement.spacedBy(12.dp)
     ) {
         item {
-            // Etiqueta Nombre del Alumno desde recursos
+            // Nombre desde stringsss
             Text(
                 text = stringResource(id = R.string.alumno_nombre),
                 style = MaterialTheme.typography.headlineSmall,
@@ -108,7 +108,7 @@ fun ExamenApp() {
         }
 
         item {
-            // Imagen desde recursos
+
             Image(
                 painter = painterResource(id = R.drawable.perfil),
                 contentDescription = "Foto Examen",
@@ -116,7 +116,7 @@ fun ExamenApp() {
             )
         }
 
-        // Campos de Texto (OutlinedTextField)
+        // Campos de txt
         item { CustomInput(dni, { dni = it }, R.string.label_dni) }
         item { CustomInput(apellidos, { apellidos = it }, R.string.label_apellidos) }
         item { CustomInput(nombre, { nombre = it }, R.string.label_nombre) }
@@ -127,7 +127,7 @@ fun ExamenApp() {
         item {
             Spacer(modifier = Modifier.height(16.dp))
 
-            // Botón Azul con Intent de Correo
+            // Intent de Correo
             Button(
                 onClick = {
                     val message = """
